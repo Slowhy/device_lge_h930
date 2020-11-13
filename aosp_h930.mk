@@ -12,6 +12,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Overlays (inherit after vendor/cm to ensure we override it)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# FaceUnlock
+$(call inherit-product-if-exists, vendor/apps/FaceUnlock/config.mk)
+
+# GMS
+$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
+$(call inherit-product-if-exists, vendor/pixelstyle/config.mk)
+$(call inherit-product-if-exists, vendor/apps/GoogleCamera/config.mk)
+
+# OTA
+$(call inherit-product-if-exists, vendor/apps/Updater/config.mk)
+
 # Device identifiers
 
 PRODUCT_NAME := aosp_h930
